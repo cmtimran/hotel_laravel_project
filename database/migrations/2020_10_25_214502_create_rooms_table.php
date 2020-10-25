@@ -13,8 +13,14 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('_rooms', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->bigIncrements('id');
+           $table->bigIncrements('floor');
+            $table->string('view');
+            $table->string('type');
+          //  $table->foreignId('booking_id')->constrained()->onDelete('cascade');
+          $table->foreign('booking_id')->references('id')->on('booking');
+            $table->unsignedTinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_rooms');
+        Schema::dropIfExists('rooms');
     }
 }
