@@ -16,14 +16,16 @@ class CreateCustomersTable extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('phone')->unique()->nullable();
-            $table->string('address')->nullable();
+            $table->string('phone')->nullable()->unique();
+            $table->string('address')->nullable()->unique();
             $table->string('email')->unique();
             $table->string('nationality');
-            // $table->foreignId('booking_id')->constrained()->onDelete('cascade');
-            $table->foreignId('reservation_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('booking_id');
+            $table->unsignedBigInteger('reservation_id');
+            // $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
+
     }
 
     /**
