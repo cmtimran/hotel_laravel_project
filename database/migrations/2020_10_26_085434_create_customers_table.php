@@ -20,9 +20,6 @@ class CreateCustomersTable extends Migration
             $table->string('address')->nullable()->unique();
             $table->string('email')->unique();
             $table->string('nationality');
-            $table->unsignedBigInteger('booking_id');
-            $table->unsignedBigInteger('reservation_id');
-            // $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
 
