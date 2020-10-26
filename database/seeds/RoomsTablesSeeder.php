@@ -22,7 +22,7 @@ class RoomsTablesSeeder extends Seeder
             'floar' => int::random(10),
             'view' => Str::random(20),
             'type' => Str::random(20),
-            'status' => rand(0, 1),           
+            'status' => rand(0, 1),
         ]);}
     }
 }

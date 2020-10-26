@@ -15,13 +15,14 @@ class UsersTablesSeeder extends Seeder
      */
     public function run()
     {
-            for($i=0;$i<=100;$i++)
+
         {
             User::create([
-                'name'  => Str::random(10),
-                'email' =>$this->faker->unique()->safeEmail,
-                'password' => Hash::make('password'),
 
+        User::create(
+            ['name'=>'Ahmed Eltaron','email'=>'Ahmed-eltaron@hotel.com','password'=>'0123456789'],
+            ['name'=>'Aya Sakr','email'=>'Aya-sakr@hotel.com','password'=>'0123456789'],
+            ['name'=>'Heba Essam','email'=>'Heba-Essam@hotel.com','password'=>'0123456789']),
             ]);}
     }
 }
