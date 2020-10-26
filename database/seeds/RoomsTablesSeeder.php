@@ -18,7 +18,7 @@ class RoomsTablesSeeder extends Seeder
     public function run()
     {
         for($i=0;$i<100;$i++){
-             Room::create([
+            Room::create([
             'floar' => random_int(5,15),
             'view' => Str::random(20),
             'type' => Str::random(20),
@@ -26,3 +26,4 @@ class RoomsTablesSeeder extends Seeder
         ]);}
     }
 }
+
