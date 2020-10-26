@@ -20,9 +20,9 @@ class UsersTablesSeeder extends Seeder
             User::create([
 
         User::create(
-            ['name'=>'Ahmed Eltaron','email'=>'Ahmed-eltaron@hotel.com','password'=>'0123456789'],
-            ['name'=>'Aya Sakr','email'=>'Aya-sakr@hotel.com','password'=>'0123456789'],
-            ['name'=>'Heba Essam','email'=>'Heba-Essam@hotel.com','password'=>'0123456789']),
+            ['id'=>'1','name'=>'Ahmed Eltaron','email'=>'Ahmed-eltaron@hotel.com','password'=>'0123456789','created_at'=>'2020-10-26 15:28:33','updated_at'=>'2020-10-26 15:28:33'],
+            ['id'=>'2','name'=>'Aya Sakr','email'=>'Aya-sakr@hotel.com','password'=>'0123456789','created_at'=>'2020-10-26 15:28:33','updated_at'=>'2020-10-26 15:28:33'],
+            ['id'=>'3','name'=>'Heba Essam','email'=>'Heba-Essam@hotel.com','password'=>'0123456789','created_at'=>'2020-10-26 15:28:33','updated_at'=>'2020-10-26 15:28:33']),
             ]);}
     }
 }
