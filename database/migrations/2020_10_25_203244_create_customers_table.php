@@ -20,8 +20,8 @@ class CreateCustomersTable extends Migration
             $table->string('address')->nullable();
             $table->string('email')->unique();
             $table->string('nationality');
-            $table->foreignId('booking_id')->constrained()->onDelete('cascade');
-            $table->foreignId('reservations_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('booking_id')->constrained()->onDelete('cascade');
+            $table->foreignId('reservation_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
