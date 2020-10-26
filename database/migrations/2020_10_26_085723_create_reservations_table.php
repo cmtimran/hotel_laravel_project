@@ -17,7 +17,8 @@ class CreateReservationsTable extends Migration
             $table->bigIncrements('id');
             $table->date('check_in');
             $table->date('check_out');
-            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('room_id');
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

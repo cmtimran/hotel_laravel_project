@@ -19,7 +19,6 @@ class CreateRoomsTable extends Migration
             $table->string('view');
             $table->string('type');
             $table->unsignedTinyInteger('status')->default(0);
-            $table->unsignedBigInteger('booking_id');
             $table->timestamps();
         });
     }
