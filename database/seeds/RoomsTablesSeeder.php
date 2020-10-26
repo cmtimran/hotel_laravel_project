@@ -31,3 +31,4 @@ class RoomsTablesSeeder extends Seeder
     }
 
 }
+

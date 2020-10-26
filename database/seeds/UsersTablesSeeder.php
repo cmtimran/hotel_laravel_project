@@ -15,14 +15,8 @@ class UsersTablesSeeder extends Seeder
      */
     public function run()
     {
-
-        {
-            User::create([
-
-        User::create(
-            ['name'=>'Ahmed Eltaron','email'=>'Ahmed-eltaron@hotel.com','password'=>'0123456789'],
-            ['name'=>'Aya Sakr','email'=>'Aya-sakr@hotel.com','password'=>'0123456789'],
-            ['name'=>'Heba Essam','email'=>'Heba-Essam@hotel.com','password'=>'0123456789']),
-            ]);}
+        User::create(['name'=>'Ahmed Eltaron','email'=>'Ahmed-eltaron@hotel.com','password'=>'0123456789']);
+        User::create(['name'=>'Aya Sakr','email'=>'Aya-sakr@hotel.com','password'=>'0123456789']);
+        User::create(['name'=>'Heba Essam','email'=>'Heba-Essam@hotel.com','password'=>'0123456789']);
     }
 }
