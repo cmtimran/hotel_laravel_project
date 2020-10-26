@@ -26,3 +26,4 @@ class RoomsTablesSeeder extends Seeder
         ]);}
     }
 }
+
