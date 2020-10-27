@@ -28,3 +28,18 @@ Route::get('/Reservation/{id}', 'ReservationController@index')->name('reservatio
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 });
+//Route::get('/dashboard', 'HomeController@book_num')->name('bookings_num');
+//Route::get('/dashboard', 'HomeController@customer_num')->name('customers_num');
+//Route::get('/dashboard', 'HomeController@reservation_num')->name('reservations_num');
+//Route::get('/dashboard', 'HomeController@room_busy')->name('rooms_busy');
+//Route::get('/dashboard', 'HomeController@rooms_avaliable')->name('avaliable_rooms');
+//Route::get('/dashboard', 'HomeController@customers')->name('latest_cust');
+Route::get('/dashboard', 'HomeController@bookings')->name('latest_book');
+
+
+
+
+
+
+
+
