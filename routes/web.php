@@ -11,23 +11,20 @@
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-// Route::get('/login',                            ['as' => 'show_login_form',        'uses' => 'Auth\LoginController@showLoginForm']);
-// Route::post('login',                            ['as' => 'login',                  'uses' => 'Auth\LoginController@login']);
-// Route::post('logout',                           ['as' => 'logout',                 'uses' => 'Auth\LoginController@logout']);
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/customer/{id}', 'CustomerController@index')->name('customer');
 Route::get('/Room/{id}', 'RoomController@index')->name('room');
 Route::get('/Reservation/{id}', 'ReservationController@index')->name('reservation');
-
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 });
+<<<<<<< HEAD
 //Route::get('/dashboard', 'HomeController@book_num')->name('bookings_num');
 //Route::get('/dashboard', 'HomeController@customer_num')->name('customers_num');
 //Route::get('/dashboard', 'HomeController@reservation_num')->name('reservations_num');
@@ -43,3 +40,14 @@ Route::get('/dashboard', 'HomeController@bookings')->name('latest_book');
 
 
 
+=======
+
+Route::get('header', function () {
+    return view('layouts.header');
+    
+});
+Route::get('footer', function () {
+    return view('layouts.sidebar');
+    
+});
+>>>>>>> 25ab62e2e00fcf4a07e4bc26816920614ad6e4bb
