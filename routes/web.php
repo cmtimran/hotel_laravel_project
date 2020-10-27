@@ -11,12 +11,15 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-
+// Route::get('/login',                            ['as' => 'show_login_form',        'uses' => 'Auth\LoginController@showLoginForm']);
+// Route::post('login',                            ['as' => 'login',                  'uses' => 'Auth\LoginController@login']);
+// Route::post('logout',                           ['as' => 'logout',                 'uses' => 'Auth\LoginController@logout']);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/customer/{id}', 'CustomerController@index')->name('customer');
 Route::get('/Room/{id}', 'RoomController@index')->name('room');
