@@ -21,8 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/customer/{id}', 'CustomerController@index')->name('customer');
 Route::get('/Room/{id}', 'RoomController@index')->name('room');
 Route::get('/Reservation/{id}', 'ReservationController@index')->name('reservation');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-    
-});
 
+Route::get('/dashboard', function () {
+    return view('backend.dashboard');
+});
