@@ -17,10 +17,7 @@ class CustomerController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
-    {
-        //
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -49,10 +46,6 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -60,10 +53,6 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -72,10 +61,7 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -86,5 +72,34 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         //
+    }
+    public function show()
+    {
+        $customers = Customer::paginate(10);
+        return view('backend.customers', compact('customers'));
+    }
+
+    public function update($id)
+    {
+    	$category = Customer::find($id);
+
+	    return response()->json([
+	      'data' => $category
+	    ]);
+    }
+
+    public function edit(Request $request, $id)
+    {
+        Customer::updateOrCreate(
+       [
+        'id' => $id
+       ],
+       [
+        'name' => $request->name,
+       ]
+      );
+
+      return response()->json([ 'success' => true ]);
+
     }
 }

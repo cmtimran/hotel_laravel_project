@@ -15,7 +15,7 @@
                     @endif
 
                     Dashboard
-                 </div>
+                </div>
             </div>
         </div>
     </div>
