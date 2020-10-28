@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+@include('layouts.header')
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
@@ -38,25 +38,27 @@
                                 <td>{{$customer->nationality}}</td>
                                 <td>{{$customer->created_at}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                    data-target="#exampleModal"
+                                    <button type="button" class="btn btn-success main_edit"
                                     style="
                                     display: block;
                                     width: 100%;
                                     margin-bottom: 10px;
-                                    ">Edit</button>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_2"
+                                    "value="{{$customer->id}}">Edit</button>
+
+                                    <button type="button" class="btn btn-danger main_delete"
                                     style="
                                     display: block;
                                     width: 100%;
                                     margin-bottom: 10px;
-                                    ">Delete</button>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_3"
+                                    "value="{{$customer->id}}">
+                                    Delete</button>
+
+                                    <button type="button" class="btn btn-primary main_view"
                                     style="
                                     display: block;
                                     width: 100%;
                                     margin-bottom: 10px;
-                                    ">View</button>
+                                    " value="{{$customer->id}}">View</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -67,118 +69,51 @@
             </div>
         </div>
     </div>
-          <!-- Modal Edit -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Username</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Phone number</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">address</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">nationality</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <!-- Modal Delete-->
-  <div class="modal fade" id="exampleModal_2" tabindex="-1" aria-labelledby="exampleModal_2Label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModal_2Label">Delete</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-            <h5>Are you sure you want to delete</h5>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-        </div>
-    </div>
-  </div>
-
-<!-- Modal view-->
-<div class="modal fade" id="exampleModal_3" tabindex="-1" aria-labelledby="exampleModal_3Label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModal_3Label">View</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <fieldset disabled>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Username</label>
-                            <input type="text" class="form-control" id="disabledTextInput" placeholder="Username">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Phone number</label>
-                            <input type="text" class="form-control" id="disabledTextInput" placeholder="Phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Email address</label>
-                            <input type="text" class="form-control" id="disabledTextInput" placeholder="Email address">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">address</label>
-                            <input type="text" class="form-control" id="disabledTextInput" placeholder="address">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">nationality</label>
-                            <select id="disabledSelect" class="form-control">
-                                <option>egypt</option>
-                            </select>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
+@include('backend.components.add')
+<div id="model_3_view"></div>
+<div id="model_2_view"></div>
+<div id="model_1_view"></div>
 </div>
-
+@endsection
+@section('script')
+<script>
+    $(function () {
+    $('.main_view').click(function () {
+        let id = $(this).val();
+        var url = "{{url('dashboard/customer/view/')}}"+"/"+id;
+        $.ajax({
+            method: "get",
+            url:url,
+            success:function(data){
+                $('#model_1_view').html(data);
+                $('#exampleModal_3').modal('show');
+            }
+        });
+    });
+    $('.main_delete').click(function () {
+        let id = $(this).val();
+        var url = "{{url('dashboard/customer/delete_2/')}}"+"/"+id;
+        $.ajax({
+            method: "get",
+            url:url,
+            success:function(deleted){
+                $('#model_2_view').html(deleted);
+                $('#exampleModal_2').modal('show');
+            }
+        });
+    });
+    $('.main_edit').click(function () {
+        let id = $(this).val();
+        var url = "{{url('dashboard/customer/edit_2/')}}"+"/"+id;
+        $.ajax({
+            method: "get",
+            url:url,
+            success:function(edit){
+                $('#model_3_view').html(edit);
+                $('#exampleModal_3').modal('show');
+            }
+        });
+    });
+})
+</script>
 @endsection

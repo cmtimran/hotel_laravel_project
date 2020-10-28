@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {
@@ -69,9 +70,11 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
+        return redirect()->back();
     }
     public function show()
     {
@@ -79,27 +82,59 @@ class CustomerController extends Controller
         return view('backend.customers', compact('customers'));
     }
 
-    public function update($id)
+    public function view($id)
     {
-    	$category = Customer::find($id);
-
-	    return response()->json([
-	      'data' => $category
-	    ]);
+        $custom = Customer::find($id);
+        // dd($custom);
+        return view('backend.components.view', compact('custom'));
     }
-
+    public function view_2($id)
+    {
+        $delete_custom = Customer::find($id);
+        // dd($custom);
+        return view('backend.components.delete', compact('delete_custom'));
+    }
+    public function view_3($id)
+    {
+        $edit_custom = Customer::find($id);
+        // dd($custom);
+        return view('backend.components.edit', compact('edit_custom'));
+    }
+    public function add(Request $request)
+    {
+        $validation= Validator::make($request->all(),[
+            'name'=>'required|string',
+            'email'=>'required|email',
+        ]);
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput();
+        }
+        $data['name']         = $request->name;
+        $data['phone']        = $request->phone;
+        $data['email']        = $request->email;
+        $data['address']      = $request->address;
+        $data['nationality']  = $request->nationality;
+        Customer::create($data);
+        return redirect()->back();
+    }
     public function edit(Request $request, $id)
     {
-        Customer::updateOrCreate(
-       [
-        'id' => $id
-       ],
-       [
-        'name' => $request->name,
-       ]
-      );
-
-      return response()->json([ 'success' => true ]);
-
+        $validation= Validator::make($request->all(),[
+            'name'=>'required|string',
+            'email'=>'required|email',
+        ]);
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput();
+        }
+        $customer = Customer::whereId($id)->first();
+        if($customer){
+            $data['name']         = $request->name;
+            $data['phone']        = $request->phone;
+            $data['email']        = $request->email;
+            $data['address']      = $request->address;
+            $data['nationality']  = $request->nationality;
+            $customer->update($data);
+            return redirect()->back();
+        }
     }
 }
