@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class BookingController extends Controller
 {
@@ -19,9 +21,26 @@ class BookingController extends Controller
     }
     public function index()
     {
+<<<<<<< HEAD
 
+=======
+        $bookings = Booking::paginate(10);
+        return view('backend.booking', compact('bookings'));
+>>>>>>> 27411a00ec3b288ca66d18314c985c1ff1b233bb
     }
 
+
+
+    public function view_2($id)
+    {
+        $delete_booking = Booking::find($id);
+        return view('backend.components.delete', compact('delete_booking'));
+    }
+    public function view($id)
+    {
+        $booking = Booking::find($id);
+        return view('backend.components.view', compact('booking'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -49,9 +68,11 @@ class BookingController extends Controller
      * @param  \App\booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(booking $booking)
+    public function show()
     {
-        //
+        
+        $bookings = Booking::paginate(10);
+        return view('backend.booking', compact('bookings'));
     }
 
     /**
@@ -83,8 +104,10 @@ class BookingController extends Controller
      * @param  \App\booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(booking $booking)
+    public function destroy($id)
     {
-        //
+        $booking = Booking::find($id);
+        $booking->delete();
+        return redirect()->back();
     }
 }
