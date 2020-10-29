@@ -49,9 +49,10 @@ class ReservationController extends Controller
      * @param  \App\reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function show(reservation $reservation)
+    public function show()
     {
-        //
+        $reservations =reservation::paginate(10);
+        return view('backend.reservation', compact('reservations'));
     }
 
     /**
@@ -83,8 +84,10 @@ class ReservationController extends Controller
      * @param  \App\reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(reservation $reservation)
+    public function destroy($id)
     {
-        //
+        $reservation=reservation::find($id);
+        $reservation->delete();
+        return redirect('backend.reservation')->with('msg','Reservation Deleted');
     }
 }

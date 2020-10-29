@@ -34,12 +34,11 @@
                   </li>
                 </ul>
               </li>
-     
+
             </ul>
           </div>
         </nav>
       </header>
-</div>
 
 
 <aside class="main-sidebar">
@@ -95,15 +94,4 @@
         </li>
     </section>
   </aside>
-  <div class="content-wrapper">
-    <section class="content-header">
-        <h1>
-          Dashboard
-          <small>Control panel</small>
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Bookings</a></li>
-          <li class="active">Dashboard</li>
-        </ol>
-      </section>
-  </div>
+
