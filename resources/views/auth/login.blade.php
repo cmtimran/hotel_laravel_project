@@ -50,10 +50,7 @@
                             </div>
                         </div>
                     </form>
-<<<<<<< HEAD
                 </div>
-=======
->>>>>>> 27411a00ec3b288ca66d18314c985c1ff1b233bb
                 </div>
             </div>
         </div>

@@ -82,9 +82,9 @@
                         <label for="exampleFormControlInput1">room_id</label>
                         <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$booking->room_id}}">
                     </div>
-                    
-                   
-                  
+
+
+
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Updated at</label>
                         <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$booking->updated_at}}">
