@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<<<<<<< HEAD
 @section('content')
 
 
@@ -22,7 +21,7 @@
             <div class="col-lg-3 col-xs-6">
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>{{ $bookings_num }}</h3>
+                <h3>{{$bookings_num}}</h3>
                   <p>Bookings</p>
                 </div>
                 <div class="icon">
@@ -160,9 +159,8 @@
 
 @include('layouts.footer')
 @endsection
-=======
 @include('layouts.header')
-@section('content')   
+@section('content')
      <div class="content-wrapper">
     <section class="content-header">
       <h1>
@@ -295,7 +293,7 @@
           </tr>
         </table>
       </div>
-      
+
       <!--Customers-->
       <div class="row">
         <div class="col-xs-12">
@@ -424,4 +422,3 @@
       </div>
     </div>
   </div>
->>>>>>> 27411a00ec3b288ca66d18314c985c1ff1b233bb

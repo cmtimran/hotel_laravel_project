@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
-
+use Illuminate\Support\Facades\Auth;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -32,7 +32,7 @@ use App\Http\Controllers\ReservationController;
 // Route::get('/dashboard', 'HomeController@rooms_avaliable')->name('avaliable_rooms');
 // Route::get('/dashboard', 'HomeController@customers')->name('latest_cust');
 // Route::get('/dashboard', 'HomeController@bookings')->name('latest_book');
-
+Auth::routes();
 Route::get('/dashboard/customer/view/{id}', 'CustomerController@view')->name('view');
 Route::get('/dashboard/customer/delete_2/{id}', 'CustomerController@view_2')->name('view');
 Route::delete('/dashboard/customer/destroy/{id}', 'CustomerController@destroy')->name('delete');
