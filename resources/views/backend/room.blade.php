@@ -8,7 +8,7 @@
                 <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Customers</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Rooms</a></li>
                 <li class="active">Dashboard</li>
             </ol>
             </section>
@@ -18,39 +18,45 @@
                     <thead>
                         <tr style="background-color: #222d32;color: white;">
                             <th scope="col">id</th>
-                            <th scope="col">name</th>
-                            <th scope="col">phone</th>
-                            <th scope="col">address</th>
-                            <th scope="col">email</th>
-                            <th scope="col">nationality</th>
-                            <th scope="col">created_at</th>
+                            <th scope="col">Floar</th>
+                            <th scope="col">View</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Created_at</th>
+                            <th scope="col">Updated_at</th>
                             <th scope="col">action</th>
                         </tr>
                     </thead>
                     <tbody>
-                            @foreach ($customers as $customer)
+                            @foreach ($rooms as $room)
                             <tr>
-                                <th scope="row">{{$customer->id}}</th>
-                                <td>{{$customer->name}}</td>
-                                <td>{{$customer->phone}}</td>
-                                <td>{{$customer->address}}</td>
-                                <td>{{$customer->email}}</td>
-                                <td>{{$customer->nationality}}</td>
-                                <td>{{$customer->created_at}}</td>
+                                <th scope="row">{{$room->id}}</th>
+                                <td>{{$room->floar}}</td>
+                                <td>{{$room->view}}</td>
+                                <td>{{$room->type}}</td>
+                                <td>
+                                    @if ($room->status == 1)
+                                        <span class="badge badge-danger" style="background-color: #dd4b39">Reserved</span>
+                                    @else
+                                        <span class="badge badge-info" style="background-color: #367fa9">Not reserved</span>
+                                    @endif
+                                </td>
+                                <td>{{$room->created_at}}</td>
+                                <td>{{$room->updated_at}}</td>
                                 <td>
                                     <button type="button" class="btn btn-success main_edit"
                                     style="
                                     display: block;
                                     width: 100%;
                                     margin-bottom: 10px;
-                                    "value="{{$customer->id}}">Edit</button>
+                                    "value="{{$room->id}}">Edit</button>
 
                                     <button type="button" class="btn btn-danger main_delete"
                                     style="
                                     display: block;
                                     width: 100%;
                                     margin-bottom: 10px;
-                                    "value="{{$customer->id}}">
+                                    "value="{{$room->id}}">
                                     Delete</button>
 
                                     <button type="button" class="btn btn-primary main_view"
@@ -58,18 +64,18 @@
                                     display: block;
                                     width: 100%;
                                     margin-bottom: 10px;
-                                    " value="{{$customer->id}}">View</button>
+                                    " value="{{$room->id}}">View</button>
                                 </td>
                             </tr>
                             @endforeach
                     </tbody>
                 </table>
-                {{ $customers->links() }}
+                {{ $rooms->links() }}
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_4">add new</button>
             </div>
         </div>
     </div>
-@include('backend.components.add')
+@include('backend.components.add_room')
 <div id="model_3_view"></div>
 <div id="model_2_view"></div>
 <div id="model_1_view"></div>
@@ -80,7 +86,7 @@
     $(function () {
     $('.main_view').click(function () {
         let id = $(this).val();
-        var url = "{{url('dashboard/customer/view/')}}"+"/"+id;
+        var url = "{{url('dashboard/rooms/view/')}}"+"/"+id;
         $.ajax({
             method: "get",
             url:url,
@@ -92,7 +98,7 @@
     });
     $('.main_delete').click(function () {
         let id = $(this).val();
-        var url = "{{url('dashboard/customer/delete_2/')}}"+"/"+id;
+        var url = "{{url('dashboard/rooms/delete/')}}"+"/"+id;
         $.ajax({
             method: "get",
             url:url,
@@ -104,7 +110,7 @@
     });
     $('.main_edit').click(function () {
         let id = $(this).val();
-        var url = "{{url('dashboard/customer/edit_2/')}}"+"/"+id;
+        var url = "{{url('dashboard/rooms/edit/')}}"+"/"+id;
         $.ajax({
             method: "get",
             url:url,

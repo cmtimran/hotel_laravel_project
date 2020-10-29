@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -52,33 +51,8 @@
                         </div>
                     </form>
                 </div>
-                </div>
-                <div class="form-group">
-
-                <label for="inputPassword3" class="col-sm-3 control-label" style="font-size: 18px;">Password</label>
-                <div class="col-sm-9">
-                    <input id="password" type="password" id="inputPassword3" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password..."
-                    style="font-size: 16px;
-                    margin-top: 10px;">
-                    @error('password')
-                        <span class="invalid-feedback" role="alert" style="font-size: 15px">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                </div>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-block btn-flat"
-                style="width: 94%;
-                        margin: auto;
-                        font-size: 15px;">
-                    {{ __('Login') }}
-                </button>
-            </div>
-            <!-- /.box-footer -->
-            </form>
         </div>
     </div>
+</div>
 @endsection

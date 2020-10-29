@@ -12,11 +12,20 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <form method="POST" action="{{route('delete',$delete_custom->id)}}">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                        <input type="submit" class="btn btn-danger delete-user" value="Delete user">
-                </form>
+                @isset($delete_custom->id)
+                    <form method="POST" action="{{route('delete',$delete_custom->id)}}">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                            <input type="submit" class="btn btn-danger delete-user" value="Delete user">
+                    </form>
+                @endisset
+                @isset($delete_room->id)
+                    <form method="POST" action="{{route('delete_room',$delete_room->id)}}" style="display: inline;">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                            <input type="submit" class="btn btn-danger delete-user" value="Delete user">
+                    </form>
+                @endisset
             </div>
         </div>
     </div>
