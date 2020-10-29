@@ -17,7 +17,7 @@
                   <img src="img/logo.png" class="user-image " alt="User Image">
                   <span class="hidden-xs">Hotel Booking</span>
                 </a>
-                <ul class="dropdown-menu" ">
+                <ul class="dropdown-menu" >
                   <li class="user-header">
                     <img src="img/logo.png" class="img-circle" alt="User Image">
                     <p>
@@ -29,7 +29,17 @@
                   </li>
                   <li class="user-footer">
                     <div class="pull-right" style="padding-top:7px;padding-right:5px;">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="#" class="btn btn-default btn-flat dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                  </form>
+              
+
+
+
                     </div>
                   </li>
                 </ul>

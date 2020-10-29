@@ -30,6 +30,10 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/dashboard';
 
+    public function logout() {
+        Auth::logout();
+        return redirect('/login');
+      }
     /**
      * Create a new controller instance.
      *

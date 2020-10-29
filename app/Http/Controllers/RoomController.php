@@ -18,7 +18,7 @@ class RoomController extends Controller
     }
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -48,9 +48,10 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function show(Room $room)
+    public function show()
     {
-        //
+        $Rooms = Room::paginate(10);
+        return view('backend.Room', compact('Rooms'));
     }
 
     /**

@@ -8,6 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <title>{{ config('app.name', 'Laravel') }}</title>
+<link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,300;0,600;0,900;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('frontend/css/main.css')}}">
 <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{ asset('backend/css/font-awesome.min.css')}}">
 <link rel="stylesheet" href="{{ asset('backend/css/ionicons.min.css')}}">
@@ -65,6 +69,10 @@
     <script src="{{asset('backend/js/adminlte.min.js')}}"></script>
 <!-- <script src="{{asset('backend/js/dashboard.js')}}"></script> -->
     <script src="{{asset('backend/js/demo.js')}}"></script>
+    <script src="{{asset('frontend/js/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{asset('frontend/js/popper.min.js')}}"></script>
+    <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('frontend/js/main.js')}}"></script>
 
 
 
