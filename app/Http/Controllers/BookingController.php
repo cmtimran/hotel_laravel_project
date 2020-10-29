@@ -21,12 +21,9 @@ class BookingController extends Controller
     }
     public function index()
     {
-<<<<<<< HEAD
 
-=======
-        $bookings = Booking::paginate(10);
+        $bookings = Booking::whereHas('customer')->paginate(10);
         return view('backend.booking', compact('bookings'));
->>>>>>> 27411a00ec3b288ca66d18314c985c1ff1b233bb
     }
 
 
@@ -70,7 +67,7 @@ class BookingController extends Controller
      */
     public function show()
     {
-        
+
         $bookings = Booking::paginate(10);
         return view('backend.booking', compact('bookings'));
     }

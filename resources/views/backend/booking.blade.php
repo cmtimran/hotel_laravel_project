@@ -20,7 +20,6 @@
                             <th scope="col">id</th>
                             <th scope="col">customer_id</th>
                             <th scope="col">room_id</th>
-                            <th scope="col">Updated_at</th>
                             <th scope="col">action</th>
                         </tr>
                     </thead>
@@ -28,26 +27,17 @@
                             @foreach ($bookings as $booking)
                             <tr>
                                 <th scope="row">{{$booking->id}}</th>
-                                <td>{{$booking->customer_id}}</td>
+                                <td>{{$booking->customer->name}}</td>
                                 <td>{{$booking->room_id}}</td>
-                               
-                                <td>{{$booking->updated_at}}</td>
+
                                 <td>
-                                
+
                                     <button type="button" class="btn btn-danger main_delete"
-                                    style="
-                                    display: block;
-                                    width: 100%;
-                                    margin-bottom: 10px;
-                                    "value="{{$booking->id}}">
+                                    value="{{$booking->id}}">
                                     Delete</button>
 
                                     <button type="button" class="btn btn-primary main_view"
-                                    style="
-                                    display: block;
-                                    width: 100%;
-                                    margin-bottom: 10px;
-                                    " value="{{$booking->id}}">View</button>
+                                     value="{{$booking->id}}">View</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -89,7 +79,7 @@
             }
         });
     });
- 
+
 })
 </script>
 @endsection

@@ -15,24 +15,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Auth;
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// //Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/customer/{id}', 'CustomerController@index')->name('customer');
-// Route::get('/Room/{id}', 'RoomController@index')->name('room');
-// Route::get('/Reservation/{id}', 'ReservationController@index')->name('reservation');
-
-// Route::get('/dashboard', 'HomeController@book_num')->name('bookings_num');
-// Route::get('/dashboard', 'HomeController@customer_num')->name('customers_num');
-// Route::get('/dashboard', 'HomeController@reservation_num')->name('reservations_num');
-// Route::get('/dashboard', 'HomeController@room_busy')->name('rooms_busy');
-// Route::get('/dashboard', 'HomeController@rooms_avaliable')->name('avaliable_rooms');
-// Route::get('/dashboard', 'HomeController@customers')->name('latest_cust');
-// Route::get('/dashboard', 'HomeController@bookings')->name('latest_book');
 Auth::routes();
+Route::get('/dashboard','HomeController@index')->name('all_dash');
+Route::get('/home','HomeController@index')->name('all_home');
+
+
+
+
 Route::get('/dashboard/customer/view/{id}', 'CustomerController@view')->name('view');
 Route::get('/dashboard/customer/delete_2/{id}', 'CustomerController@view_2')->name('view');
 Route::delete('/dashboard/customer/destroy/{id}', 'CustomerController@destroy')->name('delete');
@@ -41,10 +30,8 @@ Route::post('/dashboard/customer/add', 'CustomerController@add')->name('add_cust
 Route::get('/dashboard/customer/edit_2/{id}', 'CustomerController@view_3')->name('view');
 Route::put('/dashboard/customer/edit/{id}', 'CustomerController@edit')->name('edit_customer');
 
-Route::get('/dashboard', 'HomeController@index')->name('all_dash');
-Route::get('/home', 'HomeController@index')->name('all_home');
 
-Route::get('/reservation','ReservationController@show')->name('reservation.show');
+Route::get('/reservation','ReservationController@show')->name('reservation');
 // Route::delete('reservation/{id}','ReservationController@destroy')->name('reservation.destroy');
 Route::get('/dashboard/rooms', 'RoomController@index')->name('room');
 Route::post('/dashboard/rooms/add_room', 'RoomController@add')->name('add_room');
@@ -60,7 +47,12 @@ Route::get('/dashboard/booking/delete/{id}', 'BookingController@view_2')->name('
 Route::delete('/dashboard/booking/destroy/{id}', 'BookingController@destroy')->name('delete_booking');
 Route::get('/dashboard/booking/view/{id}', 'BookingController@view')->name('view_booking');
 
-Route::get('/dashboard', function () {
-    return view('backend.dashboard');
-});
+Route::get('/dashboard/reservation', 'ReservationController@index')->name('reservation');
+Route::get('/dashboard/reservation/delete/{id}', 'ReservationController@view_2')->name('view_delete');
+Route::delete('/dashboard/reservation/destroy/{id}', 'ReservationController@destroy')->name('delete_reservation');
+Route::get('/dashboard/reservation/view/{id}', 'ReservationController@view')->name('view_room');
+Route::post('/dashboard/reservation/add_reservation', 'ReservationController@add')->name('add_reservation');
+Route::get('/dashboard/reservation/edit/{id}', 'ReservationController@view_3')->name('view_reservation');
+Route::put('/dashboard/reservation/edit_reservation/{id}', 'ReservationController@edit')->name('edit_reservation');
+
 

@@ -27,12 +27,19 @@
                     </form>
                 @endisset
                 @isset($delete_booking->id)
-                <form method="POST" action="{{route('delete_booking',$delete_booking->id)}}" style="display: inline;">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                        <input type="submit" class="btn btn-danger delete-user" value="Delete user">
-                </form>
-            @endisset
+                    <form method="POST" action="{{route('delete_booking',$delete_booking->id)}}" style="display: inline;">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                            <input type="submit" class="btn btn-danger delete-user" value="Delete user">
+                    </form>
+                @endisset
+                @isset($delete_reservation->id)
+                    <form method="POST" action="{{route('delete_reservation',$delete_reservation->id)}}" style="display: inline;">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                            <input type="submit" class="btn btn-danger delete-user" value="Delete reservation">
+                    </form>
+                @endisset
             </div>
         </div>
     </div>

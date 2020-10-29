@@ -77,7 +77,7 @@
 @endsection
 @section('script')
 <script>
-    $(function () {
+$(function () {
     $('.main_view').click(function () {
         let id = $(this).val();
         var url = "{{url('dashboard/customer/view/')}}"+"/"+id;

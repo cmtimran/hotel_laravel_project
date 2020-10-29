@@ -39,14 +39,14 @@ class HomeController extends Controller
     // }
     public function index()
     {
-        $bookings_num =Booking::count();
+        $book_num =Booking::count();
         $reservations_num =Reservation::count();
         $customers_num =Customer::count();
         $res_rooms =Room::where('status','=','1')->count();
         $avl_rooms =Room::where('status','=','0')->limit(5)->get();
         $latest_cust =Customer::limit(5)->orderBy('id','DESC')->get();
         $latest_book =Booking::limit(5)->orderBy('id','DESC')->get();
-        return view('backend.dashboard',compact(['bookings_num','reservations_num','customers_num','res_rooms','avl_rooms','latest_cust','latest_book']));
+        return view('backend.dashboard',compact(['book_num','reservations_num','customers_num','res_rooms','avl_rooms','latest_cust','latest_book']));
 
     }
 }

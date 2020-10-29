@@ -70,26 +70,38 @@
                             <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$room->updated_at}}">
                         </div>
                     @endisset
-
-
-
                     @isset($booking)
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">customer_id</label>
-                        <input type="number" class="form-control" id="disabledTextInput" placeholder="{{$booking->customer_id}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">room_id</label>
-                        <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$booking->room_id}}">
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Updated at</label>
-                        <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$booking->updated_at}}">
-                    </div>
-                @endisset
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">customer_id</label>
+                            <input type="number" class="form-control" id="disabledTextInput" placeholder="{{$booking->customer_id}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">room_id</label>
+                            <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$booking->room_id}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Updated at</label>
+                            <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$booking->updated_at}}">
+                        </div>
+                    @endisset
+                    @isset($reservation)
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">check in</label>
+                            <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$reservation->check_in}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">check out</label>
+                            <input type="text" class="form-control" id="disabledTextInput" placeholder="{{$reservation->check_out}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">room_id</label>
+                            <input type="number" class="form-control" id="disabledTextInput" placeholder="{{$reservation->room_id}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Updated at</label>
+                            <input type="text" step="1" class="form-control" id="disabledTextInput" placeholder="{{$reservation->updated_at}}">
+                        </div>
+                    @endisset
                     </fieldset>
                 </form>
             </div>
